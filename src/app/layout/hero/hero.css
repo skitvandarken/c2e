@@ -35,8 +35,8 @@
 
 .glass-tab li a:hover {
     background: rgba(255, 255, 255, 0.12);
-        background: linear-gradient(135deg, rgba(11, 94, 215, 0.35), rgba(11, 94, 215, 0.15));
-            transition: background 0.3s ease;
+    background: linear-gradient(135deg, rgba(11, 94, 215, 0.35), rgba(11, 94, 215, 0.15));
+    transition: background 0.3s ease;
 
 
 }
@@ -113,33 +113,31 @@
 
 /* ================= GLASS PANEL ================= */
 .glass-panel {
-    background: linear-gradient(
-        135deg,
-        rgba(255,255,255,0.95),
-        rgba(240,246,255,0.9)
-    );
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.95),
+            rgba(240, 246, 255, 0.9));
     backdrop-filter: blur(12px);
     border-radius: 24px;
     padding: 40px;
-    border: 1px solid rgba(0,48,121,0.15);
+    border: 1px solid rgba(0, 48, 121, 0.15);
     box-shadow:
-        0 20px 50px rgba(0,48,121,0.12),
-        inset 0 1px 0 rgba(255,255,255,0.6);
+        0 20px 50px rgba(0, 48, 121, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 /* ================= TABS ================= */
-.uk-tab > li > a {
+.uk-tab>li>a {
     color: #003079;
     font-weight: 600;
 }
 
-.uk-tab > .uk-active > a {
+.uk-tab>.uk-active>a {
     color: #003079;
     font-weight: 700;
     position: relative;
 }
 
-.uk-tab > .uk-active > a::after {
+.uk-tab>.uk-active>a::after {
     content: "";
     position: absolute;
     bottom: -8px;
@@ -162,8 +160,8 @@
     background: linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
     border-radius: 22px;
     padding: 28px;
-    border: 1px solid rgba(0,48,121,0.12);
-    box-shadow: 0 10px 30px rgba(0,48,121,0.12);
+    border: 1px solid rgba(0, 48, 121, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 48, 121, 0.12);
     transition: all .35s ease;
     position: relative;
     overflow: hidden;
@@ -181,7 +179,7 @@
 
 .pricing-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 24px 60px rgba(0,48,121,0.22);
+    box-shadow: 0 24px 60px rgba(0, 48, 121, 0.22);
 }
 
 /* ================= TITLES ================= */
@@ -208,7 +206,7 @@
     display: flex;
     justify-content: space-between;
     padding: 7px 0;
-    border-bottom: 1px solid rgba(0,48,121,0.08);
+    border-bottom: 1px solid rgba(0, 48, 121, 0.08);
     font-size: 14px;
     color: #1F2937;
 }
@@ -237,23 +235,24 @@
     background: linear-gradient(135deg, #0B5ED7, #003079) !important;
     color: #fff !important;
     border: none;
-    box-shadow: 0 10px 25px rgba(0,48,121,0.35);
+    box-shadow: 0 10px 25px rgba(0, 48, 121, 0.35);
     transition: all .3s ease;
 }
 
 .uk-button-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 35px rgba(0,48,121,0.45);
+    box-shadow: 0 16px 35px rgba(0, 48, 121, 0.45);
 }
 
 /* ================= STORAGE CONFIG ================= */
 
 .config-card {
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 18px;
     padding: 28px;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.12);
-    overflow: hidden; /* CRÍTICO */
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    /* CRÍTICO */
 }
 
 /* Grid inteligente */
@@ -283,7 +282,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    flex-wrap: wrap; /* CRÍTICO */
+    flex-wrap: wrap;
+    /* CRÍTICO */
 }
 
 
@@ -305,7 +305,7 @@
     transform: scale(1.03);
     border: 2px solid #003079;
     box-shadow:
-        0 28px 70px rgba(11,94,215,0.28);
+        0 28px 70px rgba(11, 94, 215, 0.28);
 }
 
 .pricing-card.popular::after {
@@ -319,7 +319,7 @@
     font-size: 12px;
     font-weight: 700;
     transform: rotate(45deg);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 
@@ -334,11 +334,9 @@
 
 /* Boxes de configuração */
 .config-box {
-    background: linear-gradient(
-        180deg,
-        #ffffff,
-        #f8fbff
-    );
+    background: linear-gradient(180deg,
+            #ffffff,
+            #f8fbff);
     border: 1px solid rgba(11, 94, 215, 0.15);
     border-radius: 14px;
     padding: 22px;
@@ -406,11 +404,9 @@
 
 /* Botão */
 .solution-builder .uk-button-primary {
-    background: linear-gradient(
-        135deg,
-        #003079,
-        #0a4bb5
-    );
+    background: linear-gradient(135deg,
+            #003079,
+            #0a4bb5);
     border-radius: 999px;
     box-shadow: 0 10px 25px rgba(11, 94, 215, 0.35);
 }
