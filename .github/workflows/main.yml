@@ -59,7 +59,7 @@ jobs:
           WEBDISK_PASSWORD: ${{ secrets.WEBDISK_PASSWORD }}
         run: |
           # ===== CONFIGURATION =====
-          BUILD_DIR="dist/tceu/browser"
+          BUILD_DIR="dist/clouds2europe/browser"
           WEBDISK_URL="https://stage.marketing.host2africa.com:2078"
 
           # Protected items (won't be touched)
@@ -146,4 +146,4 @@ jobs:
           done
 
           echo "🎉 Deployment completed successfully!"
-          echo "🌐 Live at: https://telcables.pt"
+          echo "🌐 Live at: https://clouds2europe.com"

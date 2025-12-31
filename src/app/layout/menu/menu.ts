@@ -1,0 +1,112 @@
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { ChangeDetectorRef } from '@angular/core';
+
+declare const UIkit: any;
+
+@Component({
+  selector: 'app-menu',
+  imports: [RouterLink, CommonModule, TranslatePipe],
+  templateUrl: './menu.html',
+  styleUrl: './menu.css',
+})
+export class Menu {
+  // Close dropdowns on scroll
+
+  private preloadFlags() {
+    ['usa', 'en', 'fr'].forEach((flag) => {
+      new Image().src = `/img/bandeiras/${flag}.png`;
+    });
+  }
+
+  closeDropdowns(): void {
+    // Close all dropdowns
+    const openDrops = document.querySelectorAll('.uk-navbar-dropdown.uk-open');
+    openDrops.forEach((drop) => drop.classList.remove('uk-open'));
+
+    // Properly hide the dropbar via UIkit
+    const dropbar = document.querySelector('.uk-navbar-dropbar');
+    if (dropbar) {
+      dropbar.classList.remove('uk-open');
+      (dropbar as HTMLElement).style.height = '0px';
+    }
+
+    // If you want to fully reset the component:
+    const nav = document.querySelector('[uk-navbar]');
+    if (nav) {
+      const navbar = UIkit.navbar(nav);
+      navbar.$emit('hide'); // force close
+    }
+  }
+
+  constructor(
+    private router: Router,
+    private translate: TranslateService,
+    private cdr: ChangeDetectorRef
+  ) {}
+
+  ngOnInit(): void {
+    this.preloadFlags();
+
+    // Close dropdowns on scroll
+    window.addEventListener('scroll', () => {
+      const openDrops = document.querySelectorAll('.uk-navbar-dropdown.uk-open');
+      openDrops.forEach((drop) => drop.classList.remove('uk-open'));
+    });
+
+    // Close dropdowns on click inside
+    document.addEventListener('click', (event: Event) => {
+      const target = event.target as HTMLElement;
+      if (target.closest('.uk-navbar-dropdown a')) {
+        this.closeDropdowns();
+      }
+    });
+  }
+
+  useLanguage(language: string): void {
+    this.translate.use(language);
+    this.updateLanguageDisplay(language);
+  }
+
+  onLanguageChange(event: Event): void {
+    const selectedValue = (event.target as HTMLSelectElement).value;
+    this.useLanguage(selectedValue);
+  }
+
+  selectedFlag: string = 'img/bandeiras/ao.png'; // Default flag for PT
+  selectedLanguage: string = 'EN'; // Default language text
+  private updateLanguageDisplay(language: string): void {
+    if (language === 'en') {
+      this.selectedFlag = '/img/bandeiras/usa.png';
+      this.selectedLanguage = 'EN';
+    } else if (language === 'fr') {
+      this.selectedFlag = '/img/bandeiras/fr.png';
+      this.selectedLanguage = 'FR';
+    }
+
+    this.cdr.detectChanges();
+  }
+
+
+
+  scrollToSection(sectionId: string): void {
+    // Close any open dropdowns before scrolling
+    this.closeDropdowns();
+
+    // Allow time for UIkit animations to finish before scrolling
+    setTimeout(() => {
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // Optional: if you have multiple “panels” (like tabbed content or sections),
+      // you can emit a custom event here or call a service to tell another component to switch
+      // Example:
+      // this.panelService.switchTo(sectionId);
+    }, 200);
+  }
+}
