@@ -4,12 +4,13 @@ import { Rodape } from '../../layout/rodape/rodape';
 import { Hero } from "../../layout/hero/hero";
 import { RouterLink } from '@angular/router';
 import { VideoAd } from '../../layout/video-ad/video-ad';
+import { Publicidade } from '../../layout/publicidade/publicidade';
 
 @Component({
   selector: 'app-inicio',
   imports: [
     Menu, Rodape,
-    Hero, RouterLink, VideoAd
+    Hero, RouterLink, VideoAd, Publicidade
 ],
   templateUrl: './inicio.html',
   styleUrl: './inicio.css',
